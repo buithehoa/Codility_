@@ -2,12 +2,20 @@
 
 # DO NOT MODIFY anything outside the below function
 def rearrange(elements)
+    elements.sort do |a, b|
+      a_1_count = a.to_s(2).count('1')
+      b_1_count = b.to_s(2).count('1')
 
-    return [1,2,3];
+      if a_1_count == b_1_count
+        a <=> b
+      else
+        a_1_count <=> b_1_count
+      end
+    end
 end
 # DO NOT MODIFY anything outside the above function
 
-puts rearrange([ 3, 2, 1 ])
+puts rearrange([ 5, 3, 7, 10, 14, 9 ])
 
 =begin
 _elements_cnt = 0
