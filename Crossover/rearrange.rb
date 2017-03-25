@@ -5,15 +5,10 @@ def rearrange(elements)
   elements.sort do |a, b|
     ai = a.to_i
     bi = b.to_i
-
     a_1_count = ai.to_s(2).count('1')
     b_1_count = bi.to_s(2).count('1')
 
-    if a_1_count == b_1_count
-      ai <=> bi
-    else
-      a_1_count <=> b_1_count
-    end
+    a_1_count == b_1_count ? ai <=> bi : a_1_count <=> b_1_count
   end
 end
 # DO NOT MODIFY anything outside the above function
