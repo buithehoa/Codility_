@@ -35,7 +35,6 @@ end
 # DO NOT MODIFY anything outside the above function
 
 # DO NOT MODIFY THE CODE BELOW THIS LINE!
-=begin
 _a_cnt = Integer(gets)
 _a_i=0
 _a = Array.new(_a_cnt)
@@ -60,4 +59,3 @@ res = twins(_a, _b);
 for res_i in res do
   puts res_i
 end
-=end
