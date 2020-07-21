@@ -3,6 +3,8 @@
 
 def solution(a, k)
   # write your code in Ruby 2.2
+  return a if a.empty?
+
   rotated = Array.new a.length
   k = k >= a.length ? k % a.length : k
 
