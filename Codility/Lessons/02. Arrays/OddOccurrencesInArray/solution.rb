@@ -8,7 +8,7 @@ def solution(a)
   sorted = a.sort
   i = 0
   loop do
-    if sorted[i] == sorted[i+1]
+    if sorted[i] == sorted[i + 1]
       i += 2
     else
       unpaired = sorted[i]
