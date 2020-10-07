@@ -3,13 +3,10 @@
 
 def solution(x, y, d)
   # write your code in Ruby 2.2
-  steps = 0
-
-  loop do
-    location = x + d * steps
-    break if location >= y
-    steps += 1
+  jumps, distance  = (y - x).divmod(d)
+  if distance > 0
+    jumps += 1
   end
 
-  steps
+  jumps
 end
