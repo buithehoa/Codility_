@@ -3,9 +3,11 @@
 
 def solution(a)
   # write your code in Ruby 2.2
-  i = 1
-  a.sort.each do |e|
-    return i if e != i
-    i += 1
+  sorted = a.sort
+  n = a.size + 1
+
+  return 1 if n == 1
+  (1..n).each_with_index do |value, index|
+    return value if sorted[index] != value
   end
 end
