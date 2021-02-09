@@ -15,8 +15,15 @@ def solution(a)
 end
 
 def diff(a, p)
-  head = a[0..(p - 1)].reduce(:+)
-  tail = a[p..(a.length - 1)].reduce(:+)
+  head = 0
+  for i in 0..(p - 1) do
+    head += a[i]
+  end
+
+  tail = 0
+  for i in p..(a.length - 1) do
+    tail += a[i]
+  end
 
   (head - tail).abs
 end
