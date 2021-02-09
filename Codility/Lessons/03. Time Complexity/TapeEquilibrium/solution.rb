@@ -8,7 +8,7 @@ def solution(a)
   min = (head - tail).abs
 
   (2...a.length).each do |p|
-    tmp = diff(a, p, head, tail)
+    tmp, head, tail = diff(a, p, head, tail)
     min = tmp if tmp < min
     break if min.zero?
   end
@@ -17,8 +17,8 @@ def solution(a)
 end
 
 def diff(a, p, head, tail)
-  new_head = head + a[p]
-  new_tail = tail - a[p]
+  new_head = head + a[p - 1]
+  new_tail = tail - a[p - 1]
 
-  (new_head - new_tail).abs
+  return (new_head - new_tail).abs, new_head, new_tail
 end
