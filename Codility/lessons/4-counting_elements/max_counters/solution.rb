@@ -14,11 +14,10 @@ def solution(n, a)
     if value >= 1 && value <= n
       count = counters[value - 1] <= max_count ? max_count + 1 : counters[value - 1] + 1
       counters[value - 1] = count
-      next_max_count = count if max_count < count
+      next_max_count = count if next_max_count < count
     elsif value == max_operation
       max_count = next_max_count
     end
-
   end
 
   counters = counters.collect { |counter| counter < max_count ? max_count : counter }
