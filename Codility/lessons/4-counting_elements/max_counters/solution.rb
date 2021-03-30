@@ -12,7 +12,7 @@ def solution(n, a)
     count = 0
 
     if value >= 1 && value <= n
-      count = counters[value - 1] < max_count ? max_count + 1 : counters[value - 1] + 1
+      count = counters[value - 1] <= max_count ? max_count + 1 : counters[value - 1] + 1
       counters[value - 1] = count
       next_max_count = count if max_count < count
     elsif value == max_operation
