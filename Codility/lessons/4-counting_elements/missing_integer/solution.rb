@@ -6,10 +6,10 @@ def solution(a)
   a.sort!
   missing = 1
 
-  a.each do |i|
-    if missing == i
+  a.each do |value|
+    if missing == value
       missing += 1
-    elsif missing < i
+    elsif missing < value
       break
     end
   end
