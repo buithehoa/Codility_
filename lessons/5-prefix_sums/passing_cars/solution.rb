@@ -11,7 +11,7 @@ def solution(a)
       east_count += 1
     else
       passing_cars += east_count
-      return -1 if passing_cars >= 1_000_000_000
+      return -1 if passing_cars > 1_000_000_000
     end
   end
 
