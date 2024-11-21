@@ -12,8 +12,7 @@ def solution(a, b, k)
 
   while kk <= b do
     count += 1
-    step += 1
-    kk = k * step
+    kk += k
   end
 
   count
