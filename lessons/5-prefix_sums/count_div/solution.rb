@@ -4,18 +4,17 @@
 def solution(a, b, k)
   # Implement your solution here
   count = 0
-  mod = 0
-  previous = 0
+  return count if k > b
 
-  (a..b).each do |current|
-    gap = current - previous + mod
-    mod = gap % k
+  div = a / k
+  mod = a % k
+  step = div + (mod > 0 ? 1 : 0)
+  kk = k * step
 
-    if (mod == 0)
-      count += 1
-    end
-
-    previous = current
+  while kk <= b do
+    count += 1
+    step += 1
+    kk = k * step
   end
 
   count
