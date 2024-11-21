@@ -3,18 +3,10 @@
 
 def solution(a, b, k)
   # Implement your solution here
-  count = 0
+  a_div = a / k
+  b_div = b / k
 
-  div = a / k
-  mod = a % k
-  step = div + (mod > 0 ? 1 : 0)
-  kk = k * step
-
-  while kk <= b do
-    count += 1
-    kk += k
-  end
-
+  count = b_div - a_div + 1
   count
 end
 
