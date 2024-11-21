@@ -4,7 +4,6 @@
 def solution(a, b, k)
   # Implement your solution here
   count = 0
-  return count if k > b
 
   div = a / k
   mod = a % k
