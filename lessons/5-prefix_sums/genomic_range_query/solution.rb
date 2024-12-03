@@ -1,13 +1,15 @@
+# https://app.codility.com/programmers/lessons/5-prefix_sums/genomic_range_query/
 # you can write to stdout for debugging purposes, e.g.
 # puts "this is a debug message"
 
 def minimal_impact(start_pos, end_pos, impact_matrix, dna, impact_factors)
   return impact_matrix[start_pos][end_pos] if impact_matrix[start_pos][end_pos]
 
-  
-  if impact_matrix[start_pos][end_pos - 1].nil?
+  if start_pos == end_pos
+    impact_matrix[start_pos][end_pos] = impact_factors[dna[start_pos]]
+  elsif impact_matrix[start_pos][end_pos - 1].nil?
     impact_matrix[start_pos][end_pos] = impact_matrix[end_pos][start_pos] = min(
-      impact_matrix[end_pos][end_pos],
+      minimal_impact(end_pos, end_pos, impact_matrix, dna, impact_factors),
       minimal_impact(start_pos, end_pos - 1, impact_matrix, dna, impact_factors))
   else
     impact_matrix[start_pos][end_pos] = impact_matrix[end_pos][start_pos] = min(
@@ -31,9 +33,6 @@ def solution(s, p, q)
   }
   dna = s.chars  
   impact_matrix = Array.new(dna.length) { Array.new(dna.length) }
-  (0...dna.length).each do |p|
-    impact_matrix[p][p] = impact_factors[dna[p]]
-  end
   
   answers = Array.new(p.length)
   # Implement your solution here
