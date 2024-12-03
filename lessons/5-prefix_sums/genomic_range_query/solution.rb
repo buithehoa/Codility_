@@ -3,18 +3,21 @@
 # puts "this is a debug message"
 
 def minimal_impact(start_pos, end_pos, impact_matrix, dna, impact_factors)
+  puts "start_pos = #{start_pos}"
+  puts "end_pos = #{end_pos}"
+
   return impact_matrix[start_pos][end_pos] if impact_matrix[start_pos][end_pos]
 
   if start_pos == end_pos
     impact_matrix[start_pos][end_pos] = impact_factors[dna[start_pos]]
-  elsif impact_matrix[start_pos][end_pos - 1].nil?
+  elsif impact_matrix[start_pos][end_pos - 1].nil?      
     impact_matrix[start_pos][end_pos] = impact_matrix[end_pos][start_pos] = min(
       minimal_impact(end_pos, end_pos, impact_matrix, dna, impact_factors),
       minimal_impact(start_pos, end_pos - 1, impact_matrix, dna, impact_factors))
   else
     impact_matrix[start_pos][end_pos] = impact_matrix[end_pos][start_pos] = min(
-      impact_matrix[end_pos][end_pos],
-      impact_matrix[start_pos][end_pos - 1])
+      minimal_impact(end_pos, end_pos, impact_matrix, dna, impact_factors),
+      minimal_impact(start_pos, end_pos - 1, impact_matrix, dna, impact_factors))
   end
 
   impact_matrix[start_pos][end_pos]
@@ -47,7 +50,8 @@ require 'minitest/autorun'
 
 class TestSolution < Minitest::Test
   def test_solution
-    assert_equal [2, 4, 1], solution('CAGCCTA', [2, 5, 0], [4, 5, 6])
+    # assert_equal [2, 4, 1], solution('CAGCCTA', [2, 5, 0], [4, 5, 6])
+    assert_equal [1, 1, 2], solution('AC', [0, 0, 1], [0, 1, 1])
   end
 end
 
