@@ -3,14 +3,11 @@
 # puts "this is a debug message"
 
 def minimal_impact(start_pos, end_pos, impact_matrix, dna, impact_factors)
-  puts "start_pos = #{start_pos}"
-  puts "end_pos = #{end_pos}"
-
   return impact_matrix[start_pos][end_pos] if impact_matrix[start_pos][end_pos]
 
   if start_pos == end_pos
     impact_matrix[start_pos][end_pos] = impact_factors[dna[start_pos]]
-  elsif impact_matrix[start_pos][end_pos - 1].nil?      
+  elsif impact_matrix[start_pos][end_pos - 1].nil?
     impact_matrix[start_pos][end_pos] = impact_matrix[end_pos][start_pos] = min(
       minimal_impact(end_pos, end_pos, impact_matrix, dna, impact_factors),
       minimal_impact(start_pos, end_pos - 1, impact_matrix, dna, impact_factors))
@@ -35,7 +32,7 @@ def solution(s, p, q)
     'T' => 4
   }
   dna = s.chars  
-  impact_matrix = Array.new(dna.length) { Array.new(dna.length) }
+  impact_matrix = Hash.new { |hash, key| hash[key] = {} }
   
   answers = Array.new(p.length)
   # Implement your solution here
