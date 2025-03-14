@@ -18,7 +18,6 @@ def subarray_sum(arr, target)
   puts "prefix_sum #{prefix_sum}"
   puts
   
-  count = 0
   sum_map = {0 => 1}  # Initialize with 0 sum
   puts "step 0"
   puts "sum_map #{sum_map}"
@@ -30,16 +29,14 @@ def subarray_sum(arr, target)
     complement = prefix_sum[i] - target
     puts "prefix_sum[#{i}] #{prefix_sum[i]}, target #{target}, complement #{complement}"
     
-    count += sum_map[complement] if sum_map.key?(complement)
-    puts "count #{count}"
-    
+    sum_map[complement] += 1 if sum_map.key?(complement)
     sum_map[prefix_sum[i]] = (sum_map[prefix_sum[i]] || 0) + 1
     
     puts "sum_map #{sum_map}"
     puts
   end
   
-  count
+  sum_map[target]
 end
 
 # Example usage
