@@ -1,12 +1,16 @@
-def prefix_sum(arr)
-  sum = Array.new(arr.length + 1, 0)
+def calculate_prefix_sum(arr)
+  prefix_sum = Array.new(arr.length + 1, 0)
 
   arr.each_with_index do |value, index|
-    sum[index + 1] = sum[index] + value
+    prefix_sum[index + 1] = prefix_sum[index] + value
   end
 
-  sum
+  prefix_sum
 end
 
-def range_sum_query(
+def query_range_sum(arr, from, to)
+  prefix_sum = calculate_prefix_sum arr
+
+  prefix_sum[to + 1] - prefix_sum[from]
+end
 
