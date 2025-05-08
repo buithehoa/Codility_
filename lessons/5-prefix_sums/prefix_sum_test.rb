@@ -4,7 +4,7 @@ require_relative 'prefix_sum' # Adjust path if needed
 
 class PrefixSumTest < Minitest::Test
   def test_empty_array
-    assert_equal [0], PrefixSum.calculate([])
+    assert_equal [], PrefixSum.calculate([])
   end
   
   def test_single_element

@@ -1,6 +1,8 @@
 class PrefixSum
   class << self
     def calculate(arr)
+      return [] if arr.nil? || arr.empty?
+
       prefix_sum = Array.new(arr.length + 1, 0)
 
       arr.each_with_index do |value, index|

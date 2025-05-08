@@ -1,4 +1,3 @@
-require 'minitest/autorun'
 require 'minitest/pride'
 require_relative 'range_sum_query'
 
