@@ -77,5 +77,8 @@ DEPENDENCIES
   minitest (~> 5.25.5)
   minitest-reporters (~> 1.7.1)
 
+RUBY VERSION
+   ruby 3.4.2p28
+
 BUNDLED WITH
    2.6.9
