@@ -1,14 +1,11 @@
 require 'minitest/autorun'
-require 'minitest/reporters'
+# require 'minitest/reporters'
 require_relative 'solution'
 
-Minitest::Reporters.use! Minitest::Reporters::ProgressReporter.new
+# Minitest::Reporters.use! Minitest::Reporters::ProgressReporter.new
 
-describe 'solution' do
-  it 'calculates the ...' do
-    a = 0
-
-    _(solution 0).must_equal 10
+class SolutionTest < Minitest::Test
+  def test_calculates_the_result
+    assert_equal 4446, solution(0)
   end
 end
-
