@@ -1,5 +1,12 @@
-guard :minitest, test_folders: ['.'], autorun: true do
-  watch(%r{^(.+)\.rb$}) { |m| "#{m[1]}_test.rb" unless m[1] =~ /_test$/ }
-  watch(%r{^.+_test\.rb$})
-end
+guard :minitest,
+      test_folders: ['.'],
+      autorun:     true,
+      all_on_start: false,
+      # add -I. so Ruby can load tests from the repo root
+      cli:         '-I.' do
 
+  # when you save solution.rb, run solution_test.rb
+  watch('solution.rb')      { 'solution_test.rb' }
+  # when you save the test itself, re-run it
+  watch('solution_test.rb') { 'solution_test.rb' }
+end

@@ -5,10 +5,10 @@ require_relative 'solution'
 Minitest::Reporters.use! Minitest::Reporters::ProgressReporter.new
 
 describe 'solution' do
-  it 'calculates the range sum' do
-    arr = [-3, 1, 2, -2, 5, 6]
+  it 'calculates the ...' do
+    a = 0
 
-    _(solution arr).must_equal 60
+    _(solution 0).must_equal 10
   end
 end
 
