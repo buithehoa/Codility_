@@ -72,10 +72,10 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  guard
-  guard-minitest
-  minitest
-  minitest-reporters
+  guard (~> 2.19.1)
+  guard-minitest (~> 2.4.6)
+  minitest (~> 5.25.5)
+  minitest-reporters (~> 1.7.1)
 
 BUNDLED WITH
    2.6.9
