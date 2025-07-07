@@ -1,0 +1,5 @@
+guard :minitest, test_folders: ['.'], autorun: true do
+  watch(%r{^(.+)\.rb$}) { |m| "#{m[1]}_test.rb" unless m[1] =~ /_test$/ }
+  watch(%r{^.+_test\.rb$})
+end
+
