@@ -3,6 +3,6 @@
 
 def solution(a)
   # Implement your solution here
-  return 9999444446
+  return 0
 end
 

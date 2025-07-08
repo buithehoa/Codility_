@@ -8,6 +8,6 @@ describe 'solution' do
   it 'calculates the range sum' do
     arr = 0
 
-    _(solution(0)).must_equal 0
+    _(solution(0)).must_equal -1
   end
 end
