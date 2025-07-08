@@ -1,7 +1,0 @@
-guard :minitest do
-  # Watch your test file directly
-  watch('solution_test.rb')
-
-  # When the solution file changes, run the test
-  watch('solution.rb') { 'solution_test.rb' }
-end
