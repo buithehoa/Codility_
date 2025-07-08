@@ -1,0 +1,10 @@
+Autotest.add_hook :initialize do |at|
+  at.testlib = 'minitest/autorun'
+  at.add_mapping(%r{^(.+)\.rb$}) { |_, m|
+    "#{m[1]}_test.rb" unless m[1] =~ /_test$/
+  }
+  at.add_mapping(%r{^.+_test\.rb$}) { |filename, _|
+    filename
+  }
+end
+
