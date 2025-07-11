@@ -11,13 +11,13 @@ describe 'solution' do
     _(solution(arr)).must_equal 60
   end
 
-  it 'handles negative numbers' do
+  it 'handles one negative number' do
     arr = [-9, 1, 2, 3, 5, 6]
 
     _(solution(arr)).must_equal 90
   end
 
-  it 'handles negative numbers' do
+  it 'handles two negative numbers' do
     arr = [-5, 5, -5, 4]
 
     _(solution(arr)).must_equal 125
