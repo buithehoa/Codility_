@@ -6,8 +6,14 @@ Minitest::Reporters.use! Minitest::Reporters::ProgressReporter.new
 
 describe 'solution' do
   it 'calculates the range sum' do
-    arr = 0
+    arr = [ -3, 1, 2, -2, 5, 6 ]
 
-    _(solution(0)).must_equal 0
+    _(solution(arr)).must_equal 60
+  end
+
+  it 'handles negative numbers' do
+    arr = [ -9, 1, 2, -8, 5, 6 ]
+
+    _(solution(arr)).must_equal 72
   end
 end
