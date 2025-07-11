@@ -2,16 +2,12 @@
 # puts "this is a debug message"
 
 def solution(a)
-  a.sort!
+  largest = a.max(3)
+  smallest = a.min(2)
 
-  max1 = a[-1] * a[-2] * a[-3]
-
-  max2 = 0
-  temp_max = a[0] * a[1]
-  if temp_max > 0
-    max2 = temp_max * a[-1]
-  end
-
-  return max1 > max2 ? max1 : max2
+  [
+    largest[0] * largest[1] * largest[2],
+    smallest[0] * smallest[1] * largest[0]
+  ].max
 end
 
